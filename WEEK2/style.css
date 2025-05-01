@@ -1,37 +1,95 @@
-body{
-    background-color:  #e3c2f5b6;
-}
-
-.gallery-title {
-    text-align: center; 
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #e3c2f5b6;
+    transition: background-color 0.5s ease;
+  }
+  
+  .gallery-title {
+    text-align: center;
     font-size: 2.5rem;
     font-weight: bold;
-    color: #000; 
-    margin-top: 20px;
+    color: #000;
+    margin-top: 30px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .gallery-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    margin: 10px 40px 30px;
+    line-height: 1.6;
+  }
+  
+  .gallery-container {
     display: flex;
     justify-content: center;
-    align-items: center;
-}
-
-.container{
-    margin: 100px 0 0 200px;
-    width: 70%;
-    height: 450px;
+    padding: 20px;
+    transition: background-color 0.5s ease;
+  }
+  
+  .image-slider {
     display: flex;
-    justify-content: center;
     gap: 10px;
-}
-
-.container img{
+    width: 90%;
+    max-width: 1200px;
+    height: 450px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  /* Base image style */
+  .image-slider img {
+    flex-shrink: 0;
     width: 10%;
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
-    border: 2px solid rgba(255,255,255,0.684);
-    transition: all ease-in-out 0.5s ;
-}
-
-.container img:hover{
-    width:25%
-}
+    border: 2px solid rgba(255, 255, 255, 0.684);
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+    z-index: 1;
+  }
+  
+  /* Pop effect */
+  .image-slider img:hover {
+    width: 30%;
+    transform: scale(1.2);
+    z-index: 10;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  }
+  
+  /* CSS :has() — changes background based on which image is hovered */
+  .gallery-container:has(.img-1:hover) {
+    background-color: #fcd5ce;
+  }
+  .gallery-container:has(.img-2:hover) {
+    background-color: #d0f4de;
+  }
+  .gallery-container:has(.img-3:hover) {
+    background-color: #cde7f0;
+  }
+  .gallery-container:has(.img-4:hover) {
+    background-color: #f4dfba;
+  }
+  .gallery-container:has(.img-5:hover) {
+    background-color: #e4c1f9;
+  }
+  .gallery-container:has(.img-6:hover) {
+    background-color: #bee1e6;
+  }
+  .gallery-container:has(.img-7:hover) {
+    background-color: #ffdac1;
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .image-slider {
+      height: 300px;
+    }
+  
+    .image-slider img:hover {
+      width: 40%;
+    }
+  }
+  
